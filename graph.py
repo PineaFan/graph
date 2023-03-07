@@ -17,14 +17,7 @@ class Graph:
     ) -> None:
         self.data = data
         self.weighted = self.isDataWeighted()
-        self._shortestPaths = None
-
-    def __getattribute__(self, name) -> any:
-        if name == "shortestPaths":
-            if self._shortestPaths is None:
-                self._shortestPaths = self.findAllRoutes()
-            return self._shortestPaths
-        return super().__getattribute__(name)
+        self.shortestPaths = None
 
     def isDataWeighted(self) -> bool:
         """Check if the data is weighted"""
